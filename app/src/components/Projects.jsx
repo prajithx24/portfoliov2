@@ -41,6 +41,17 @@ const projects = [
         scope: ["PDF ingestion pipeline", "Semantic vector search", "AI-generated answers"],
         technologies: ["FastAPI", "ChromaDB", "OpenRouter"],
     },
+    {
+        number: "05",
+        title: "Smart Crop Recommendation & Disease Detection",
+        category: "AI / Machine Learning",
+        description:
+            "An intelligent agriculture platform that combines machine learning-based crop recommendation with computer vision-powered plant disease detection. Users can input soil and environmental parameters to receive optimal crop suggestions and upload leaf images for disease diagnosis and treatment insights.",
+        scope: ["ML-Based Prediction System", "Computer Vision Integration", "Full-Stack Web Application", "Production Deployment"],
+        technologies: ["Python", "Flask", "Machine Learning", "TensorFlow", "OpenCV", "Scikit-Learn", "HTML", "CSS", "JavaScript", "Render"],
+        link: "https://crop-recommendation-and-leaf-detection.onrender.com",
+        linkLabel: "Live Demo",
+    },
 ];
 
 export default function Projects() {
