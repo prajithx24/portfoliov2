@@ -43,7 +43,7 @@ const projects = [
     },
     {
         number: "05",
-        title: "Smart Crop Recommendation & Disease Detection",
+        title: "Plantex",
         category: "AI / Machine Learning",
         description:
             "An intelligent agriculture platform that combines machine learning-based crop recommendation with computer vision-powered plant disease detection. Users can input soil and environmental parameters to receive optimal crop suggestions and upload leaf images for disease diagnosis and treatment insights.",
