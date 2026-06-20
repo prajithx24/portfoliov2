@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+:root {
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f8f8f8;
+  --color-surface-muted: #f3f3f3;
+  --color-surface-subtle: #fafafa;
+  --color-border: #e2e2e2;
+  --color-border-subtle: #eeeeee;
+  --color-text-primary: #0a0a0b;
+  --color-text-secondary: #52525b;
+  --color-text-tertiary: #71717a;
+  --color-accent: #f59e0b;
+  --color-accent-light: #fbbf24;
+  --color-accent-muted: rgba(245, 158, 11, 0.12);
+  --color-accent-glow: rgba(245, 158, 11, 0.12);
+}
+
+.dark {
+  --color-surface: #09090b;
+  --color-surface-elevated: #111113;
+  --color-surface-muted: #1a1a1f;
+  --color-surface-subtle: #0f0f12;
+  --color-border: #27272a;
+  --color-border-subtle: #1e1e22;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-accent: #f59e0b;
+  --color-accent-light: #fbbf24;
+  --color-accent-muted: rgba(245, 158, 11, 0.16);
+  --color-accent-glow: rgba(245, 158, 11, 0.15);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  line-height: 1.75;
+  letter-spacing: -0.011em;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #09090b;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Ambient grain texture for depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.012;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+.dark body::before {
+  opacity: 0.02;
+}
