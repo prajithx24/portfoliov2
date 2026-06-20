@@ -18,26 +18,25 @@ export default function Hero() {
                         </span>
                     </FadeIn>
                     <FadeIn delay={0.25} blur>
-                        <h1 className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] font-bold tracking-tighter leading-[0.95] text-text-primary mb-12">
+                        <h1 className="text-[2.75rem] sm:text-[3.75rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[1] md:leading-[0.95] text-text-primary mb-10 md:mb-12">
                             Building software,{" "}
                             <br className="hidden sm:block" />
                             <span className="text-text-primary/25 ml-[-0.05em] transition-colors hover:text-text-primary duration-500">
                                 exploring
-                            </span>
-                            ,
+                            </span>,{" "}
                             <br className="hidden md:block" />
                             creating experiences.
                         </h1>
                     </FadeIn>
                     <FadeIn delay={0.4}>
-                        <p className="text-[17px] md:text-lg text-text-secondary leading-[1.85] max-w-[520px] font-medium">
+                        <p className="text-[16px] md:text-lg text-text-secondary leading-[1.85] max-w-[520px] font-medium mb-12">
                             I'm Prajith — a BTech Computer Science graduate currently pursuing
                             an MBA. I enjoy building software projects, experimenting with AI,
                             and creating digital experiences through design.
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.55}>
-                        <div className="flex flex-wrap gap-4 mt-14">
+                        <div className="flex flex-col sm:flex-row gap-4">
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}

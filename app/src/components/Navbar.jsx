@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container } from "./ui";
 import { Sun, Moon } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
     { label: "About", href: "#about" },
@@ -18,7 +19,6 @@ export default function Navbar() {
         const onScroll = () => setScrolled(window.scrollY > 40);
         window.addEventListener("scroll", onScroll, { passive: true });
 
-        // Initial theme check
         const isDarkMode = document.documentElement.classList.contains("dark");
         setIsDark(isDarkMode);
 
@@ -38,7 +38,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 pt-4 md:pt-6">
+        <nav className="fixed top-0 left-0 right-0 z-50 pt-4 md:pt-6">
             <Container>
                 <div className="flex items-center justify-between">
                     {/* Brand */}
@@ -68,48 +68,69 @@ export default function Navbar() {
                     <div className={`hidden md:flex items-center p-1.5 rounded-full border transition-all duration-500 ${scrolled ? "bg-surface/90 backdrop-blur-xl border-border shadow-sm" : "bg-text-primary/5 backdrop-blur-md border-transparent"}`}>
                         <button
                             onClick={toggleTheme}
-                            className="p-2 rounded-full hover:bg-surface-elevated text-text-secondary hover:text-text-primary transition-all duration-300 bg-surface shadow-sm"
+                            className="p-2 rounded-full hover:bg-surface-elevated text-text-secondary hover:text-text-primary transition-all duration-300 bg-surface shadow-sm active:scale-90"
                             aria-label="Toggle theme"
                         >
                             {isDark ? <Sun size={15} strokeWidth={2.5} /> : <Moon size={15} strokeWidth={2.5} />}
                         </button>
                     </div>
 
-                    {/* Mobile Right Controls */}
-                    <div className={`flex items-center gap-2 md:hidden p-1.5 rounded-full border transition-all duration-500 ${scrolled ? "bg-surface/90 backdrop-blur-xl border-border shadow-sm" : "bg-surface-elevated/50 backdrop-blur-md border-border-subtle"}`}>
+                    {/* Premium Mobile Controls */}
+                    <div className="flex items-center gap-2 md:hidden">
+                        {/* Theme Toggle - Standalone Pill */}
                         <button
                             onClick={toggleTheme}
-                            className="p-[7px] rounded-full text-text-secondary hover:text-text-primary bg-surface shadow-sm"
+                            className={`p-2.5 rounded-full transition-all duration-300 active:scale-90 ${scrolled || mobileOpen ? "bg-surface/95 backdrop-blur-xl shadow-sm border border-border text-text-secondary hover:text-text-primary" : "bg-transparent border border-transparent text-text-primary"}`}
                             aria-label="Toggle theme"
                         >
-                            {isDark ? <Sun size={14} strokeWidth={2.5} /> : <Moon size={14} strokeWidth={2.5} />}
+                            {isDark ? <Sun size={15} strokeWidth={2.5} /> : <Moon size={15} strokeWidth={2.5} />}
                         </button>
+
+                        {/* Menu Toggle - Editorial Pill */}
                         <button
                             onClick={() => setMobileOpen(!mobileOpen)}
-                            className="flex flex-col gap-[5px] p-2 px-3 bg-surface rounded-full shadow-sm"
+                            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-full transition-all duration-300 active:scale-95 ${scrolled || mobileOpen ? "bg-surface/95 backdrop-blur-xl shadow-sm border border-border" : "bg-transparent border border-transparent"}`}
                             aria-label="Toggle menu"
                         >
-                            <span className={`block w-4 h-[1.5px] bg-text-primary transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[3.25px]" : ""}`} />
-                            <span className={`block w-4 h-[1.5px] bg-text-primary transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[3.25px]" : ""}`} />
+                            <span className="text-[11px] font-bold tracking-widest uppercase text-text-primary">
+                                {mobileOpen ? "Close" : "Menu"}
+                            </span>
+                            <div className="flex flex-col gap-[4px] justify-center items-center h-full pt-[2px]">
+                                <span className={`block w-3.5 h-[1.5px] bg-text-primary transition-transform duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[2.75px]" : ""}`} />
+                                <span className={`block w-3.5 h-[1.5px] bg-text-primary transition-transform duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[2.75px]" : ""}`} />
+                            </div>
                         </button>
                     </div>
                 </div>
 
-                {/* Mobile menu */}
-                <div className={`md:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${mobileOpen ? "max-h-[300px] opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-                    <div className="flex flex-col gap-2 p-4 bg-surface/95 backdrop-blur-xl border border-border-subtle rounded-3xl shadow-xl">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => setMobileOpen(false)}
-                                className="text-sm font-semibold tracking-widest uppercase text-text-secondary hover:text-text-primary hover:bg-surface-elevated rounded-xl transition-colors py-3 px-4 text-center"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                    </div>
-                </div>
+                {/* Mobile Menu Dropdown Panel */}
+                <AnimatePresence>
+                    {mobileOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                            className="md:hidden mt-3 absolute left-0 right-0 px-4 z-40"
+                        >
+                            <div className="flex flex-col px-2 py-4 bg-surface/95 backdrop-blur-2xl border border-border rounded-3xl shadow-2xl">
+                                {navLinks.map((link, i) => (
+                                    <motion.a
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.1, duration: 0.4 }}
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setMobileOpen(false)}
+                                        className="text-[1.5rem] font-bold tracking-tighter text-text-primary py-4 px-6 active:bg-surface-elevated rounded-2xl transition-colors border-b border-border/40 last:border-0"
+                                    >
+                                        {link.label}
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </Container>
         </nav>
     );
