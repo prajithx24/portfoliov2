@@ -11,7 +11,7 @@ const projects = [
             "A product showcase website developed for a Kerala-based food products company. Features responsive design, a curated product catalog, and a streamlined quote request workflow for B2B inquiries.",
         scope: ["Product showcase & catalog", "Quote request workflow", "Responsive, modern UI"],
         technologies: ["React", "Tailwind CSS", "Vercel"],
-        link: "https://royaltastefoodproducts.vercel.app",
+        link: "https://royaltastefoodproducts.in",
         linkLabel: "Visit Website",
     },
     {
