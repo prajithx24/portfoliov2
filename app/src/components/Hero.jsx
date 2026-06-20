@@ -18,13 +18,13 @@ export default function Hero() {
                         </span>
                     </FadeIn>
                     <FadeIn delay={0.25} blur>
-                        <h1 className="text-[2.75rem] sm:text-[3.75rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[1] md:leading-[0.95] text-text-primary mb-10 md:mb-12">
+                        <h1 className="text-[2.25rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.95] text-text-primary mb-8 md:mb-12">
                             Building software,{" "}
-                            <br className="hidden sm:block" />
+                            <br />
                             <span className="text-text-primary/25 ml-[-0.05em] transition-colors hover:text-text-primary duration-500">
                                 exploring
                             </span>,{" "}
-                            <br className="hidden md:block" />
+                            <br />
                             creating experiences.
                         </h1>
                     </FadeIn>
