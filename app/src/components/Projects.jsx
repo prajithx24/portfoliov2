@@ -51,6 +51,7 @@ const projects = [
         technologies: ["Python", "Flask", "Machine Learning", "TensorFlow", "OpenCV", "Scikit-Learn", "HTML", "CSS", "JavaScript", "Render"],
         link: "https://crop-recommendation-and-leaf-detection.onrender.com",
         linkLabel: "Live Demo",
+        badge: "Published Research",
     },
 ];
 
@@ -75,14 +76,22 @@ export default function Projects() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {projects.map((project, i) => (
-                        <FadeIn key={project.title} delay={i * 0.05} blur>
+                        <FadeIn key={project.title} delay={i * 0.05} blur className={i === projects.length - 1 ? "md:col-span-2" : ""}>
                             <SpotlightCard className="h-full flex flex-col p-8 md:p-12 min-h-[460px] justify-between">
                                 {/* Header row */}
-                                <div className="flex items-start justify-between">
-                                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-text-tertiary block mb-3 group-hover:text-accent transition-colors duration-500">
-                                        {project.category}
-                                    </span>
-                                    <span className="text-[14px] font-mono text-text-tertiary opacity-40">
+                                <div className="flex items-start justify-between gap-3">
+                                    <div className="flex items-center gap-3 flex-wrap">
+                                        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-text-tertiary block group-hover:text-accent transition-colors duration-500">
+                                            {project.category}
+                                        </span>
+                                        {project.badge && (
+                                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-semibold uppercase tracking-wider text-emerald-500">
+                                                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" /></svg>
+                                                {project.badge}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <span className="text-[14px] font-mono text-text-tertiary opacity-40 shrink-0">
                                         {project.number}
                                     </span>
                                 </div>
@@ -96,11 +105,11 @@ export default function Projects() {
                                         {project.description}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-2 mb-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                                    <div className="flex flex-wrap gap-2 mb-8">
                                         {project.technologies.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="text-[11px] font-medium text-text-secondary border border-border-subtle bg-surface px-3 py-1.5 rounded-full"
+                                                className="text-[11px] font-medium text-text-tertiary border border-border-subtle bg-surface px-3 py-1.5 rounded-full group-hover:border-accent/30 group-hover:text-text-secondary transition-all duration-500"
                                             >
                                                 {tech}
                                             </span>

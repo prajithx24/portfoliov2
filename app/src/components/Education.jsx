@@ -4,7 +4,7 @@ import { GraduationCap, BookOpen } from "lucide-react";
 
 export default function Education() {
     return (
-        <section className="py-40 md:py-52">
+        <section className="py-32 md:py-40">
             <Container>
                 <FadeIn>
                     <SectionLabel>Education</SectionLabel>
@@ -29,9 +29,12 @@ export default function Education() {
                                 <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent mb-3 block">
                                     Currently Pursuing
                                 </span>
-                                <h3 className="text-[1.5rem] md:text-[1.75rem] leading-[1.3] font-bold tracking-tight text-text-primary mb-8 group-hover:text-accent transition-colors duration-500">
+                                <h3 className="text-[1.5rem] md:text-[1.75rem] leading-[1.3] font-bold tracking-tight text-text-primary mb-3 group-hover:text-accent transition-colors duration-500">
                                     Master of Business Administration
                                 </h3>
+                                <p className="text-[14px] text-text-secondary leading-relaxed mb-8">
+                                    2025 – Present
+                                </p>
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {["Business Strategy", "Marketing", "Management", "Product Thinking"].map(
@@ -61,11 +64,14 @@ export default function Education() {
                                 <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent mb-3 block">
                                     Completed
                                 </span>
-                                <h3 className="text-[1.5rem] md:text-[1.75rem] leading-[1.3] font-bold tracking-tight text-text-primary mb-5 group-hover:text-accent transition-colors duration-500">
+                                <h3 className="text-[1.5rem] md:text-[1.75rem] leading-[1.3] font-bold tracking-tight text-text-primary mb-3 group-hover:text-accent transition-colors duration-500">
                                     BTech Computer Science & Engineering
                                 </h3>
-                                <p className="text-[14px] text-text-secondary leading-relaxed">
+                                <p className="text-[14px] text-text-secondary leading-relaxed mb-1">
                                     APJ Abdul Kalam Technological University
+                                </p>
+                                <p className="text-[13px] text-text-tertiary">
+                                    2021 – 2025
                                 </p>
                             </div>
                         </SpotlightCard>

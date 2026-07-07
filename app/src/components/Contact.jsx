@@ -49,9 +49,12 @@ const links = [
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-40 md:py-56">
+        <section id="contact" className="py-32 md:py-40 relative overflow-hidden">
+            {/* Decorative ambient glow */}
+            <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px] pointer-events-none hidden lg:block" />
+
             <Container>
-                <div className="max-w-xl">
+                <div className="max-w-xl relative z-10">
                     <FadeIn>
                         <SectionLabel>Contact</SectionLabel>
                     </FadeIn>

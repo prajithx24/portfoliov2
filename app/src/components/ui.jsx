@@ -46,7 +46,7 @@ export function SpotlightCard({ children, className = "" }) {
 
     return (
         <div
-            className={`group relative overflow-hidden rounded-[2rem] border border-border-subtle bg-surface-elevated transition-all duration-500 hover:border-accent/40 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/5 hover:bg-surface-elevated/80 active:scale-[0.98] active:shadow-sm ${className}`}
+            className={`group relative overflow-hidden rounded-[2rem] border border-border-subtle bg-surface-elevated transition-all duration-500 hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5 hover:bg-surface-elevated/80 active:scale-[0.98] active:shadow-sm ${className}`}
             onMouseMove={handleMouseMove}
             onTouchMove={handleMouseMove}
         >

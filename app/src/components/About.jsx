@@ -1,28 +1,33 @@
 import { FadeIn } from "./animations";
 import { Container, SectionLabel, SectionHeading } from "./ui";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function About() {
+    const imageRef = useRef(null);
+    const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
+    const imageScale = useTransform(scrollYProgress, [0, 1], [1.08, 1]);
+
     return (
-        <section id="about" className="py-40 md:py-52 overflow-hidden">
+        <section id="about" className="py-32 md:py-40 overflow-hidden">
             <Container>
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 lg:gap-24 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-16 items-start">
                     {/* Image Column */}
-                    <div className="lg:col-span-5 order-2 lg:order-1">
+                    <div className="lg:col-span-5 order-2 lg:order-1" ref={imageRef}>
                         <FadeIn delay={0.2} direction="right">
                             <div className="relative group">
-                                <div className="absolute -inset-4 bg-accent/10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                                <div className="relative rounded-[1.5rem] overflow-hidden border border-border-subtle bg-surface-elevated aspect-[4/5] md:aspect-auto">
+                                <div className="absolute -inset-6 bg-accent/8 rounded-[2.5rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                                <motion.div
+                                    style={{ scale: imageScale }}
+                                    className="relative rounded-[1.5rem] overflow-hidden border border-border-subtle bg-surface-elevated aspect-[4/5] md:aspect-auto"
+                                >
                                     <img
                                         src="/portrait.png"
                                         alt="Prajith P"
-                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100"
+                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent pointer-events-none" />
-                                </div>
-
-                                {/* Decorative Elements */}
-                                <div className="absolute -bottom-6 -right-6 w-24 h-24 border-r-2 border-b-2 border-accent/20 rounded-br-2xl pointer-events-none" />
-                                <div className="absolute -top-6 -left-6 w-24 h-24 border-l-2 border-t-2 border-accent/20 rounded-tl-2xl pointer-events-none" />
+                                </motion.div>
                             </div>
                         </FadeIn>
                     </div>

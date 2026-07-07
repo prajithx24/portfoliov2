@@ -18,10 +18,10 @@ export default function Hero() {
                         </span>
                     </FadeIn>
                     <FadeIn delay={0.25} blur>
-                        <h1 className="text-[2.25rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.95] text-text-primary mb-8 md:mb-12">
+                        <h1 className="text-[2.25rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.93] lg:leading-[0.88] text-text-primary mb-8 md:mb-12">
                             Building software,{" "}
                             <br />
-                            <span className="text-text-primary/25 ml-[-0.05em] transition-colors hover:text-text-primary duration-500">
+                            <span className="font-serif italic font-normal text-text-primary/40 ml-[-0.05em] transition-colors hover:text-text-primary duration-700">
                                 exploring
                             </span>,{" "}
                             <br />
@@ -36,7 +36,7 @@ export default function Hero() {
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.55}>
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -56,6 +56,17 @@ export default function Hero() {
                             >
                                 Get in Touch
                             </motion.a>
+                        </div>
+                    </FadeIn>
+                    <FadeIn delay={0.7}>
+                        <div className="mt-16 flex items-center gap-3">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                            </span>
+                            <span className="text-[13px] font-medium text-text-tertiary tracking-wide">
+                                Open to opportunities
+                            </span>
                         </div>
                     </FadeIn>
                 </div>

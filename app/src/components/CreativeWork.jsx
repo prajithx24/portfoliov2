@@ -12,7 +12,7 @@ const creativeItems = [
 
 export default function CreativeWork() {
     return (
-        <section className="py-40 md:py-52">
+        <section className="py-32 md:py-40">
             <Container>
                 <FadeIn>
                     <SectionLabel>Creative Work</SectionLabel>
@@ -35,14 +35,14 @@ export default function CreativeWork() {
                         return (
                             <StaggerItem key={item.label}>
                                 <SpotlightCard className="p-8 text-center flex flex-col items-center justify-center h-full aspect-square sm:aspect-auto sm:h-48 group cursor-default">
-                                    <div className="w-12 h-12 rounded-full bg-surface border border-border-subtle flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-500 ease-out will-change-transform">
+                                    <div className="w-14 h-14 rounded-full bg-surface border border-border-subtle flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-500 ease-out will-change-transform">
                                         <Icon
                                             size={20}
                                             strokeWidth={1.5}
                                             className="text-text-secondary group-hover:text-surface transition-colors duration-500"
                                         />
                                     </div>
-                                    <span className="text-[13px] font-medium text-text-secondary group-hover:text-text-primary transition-colors duration-500">
+                                    <span className="text-[14px] font-medium text-text-secondary group-hover:text-text-primary transition-colors duration-500">
                                         {item.label}
                                     </span>
                                 </SpotlightCard>

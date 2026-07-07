@@ -28,7 +28,7 @@ const services = [
 
 export default function WhatIDo() {
     return (
-        <section className="py-40 md:py-52 relative">
+        <section className="py-32 md:py-40 relative">
             <Container>
                 <FadeIn>
                     <SectionLabel>What I Do</SectionLabel>
