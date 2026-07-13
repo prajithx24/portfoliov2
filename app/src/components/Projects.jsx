@@ -23,26 +23,9 @@ const projects = [
         scope: ["Real-time gesture recognition", "Hand landmark extraction", "Accessibility-first design"],
         technologies: ["Python", "OpenCV", "MediaPipe"],
     },
+
     {
         number: "03",
-        title: "Secure Chat",
-        category: "Full-Stack — Real-Time Communication",
-        description:
-            "A secure messaging platform with JWT-based authentication and WebSocket communication. Designed for privacy-first, real-time interaction with a clean, minimal interface.",
-        scope: ["JWT authentication", "WebSocket real-time messaging", "Secure backend API"],
-        technologies: ["FastAPI", "WebSocket", "JWT"],
-    },
-    {
-        number: "04",
-        title: "DocuBot",
-        category: "AI — Retrieval-Augmented Generation",
-        description:
-            "A document Q&A assistant using RAG architecture. Ingests PDFs, performs semantic vector search, and generates contextual AI-powered responses from uploaded documents.",
-        scope: ["PDF ingestion pipeline", "Semantic vector search", "AI-generated answers"],
-        technologies: ["FastAPI", "ChromaDB", "OpenRouter"],
-    },
-    {
-        number: "05",
         title: "Plantex",
         category: "AI / Machine Learning",
         description:
@@ -54,7 +37,7 @@ const projects = [
         badge: "Published Research",
     },
     {
-        number: "06",
+        number: "04",
         title: "Airfare Intelligence Dashboard",
         category: "Data Visualization — Open Data",
         description:
