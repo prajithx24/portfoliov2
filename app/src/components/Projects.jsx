@@ -53,6 +53,17 @@ const projects = [
         linkLabel: "Live Demo",
         badge: "Published Research",
     },
+    {
+        number: "06",
+        title: "Airfare Intelligence Dashboard",
+        category: "Data Visualization — Open Data",
+        description:
+            "An interactive analytics dashboard built on U.S. DOT open data, visualizing the top 1,000 city-pair airfare markets. Features KPI cards, a route map with curved arcs, fare distribution histograms, year-over-year trend lines, and a sortable paginated table with CSV export.",
+        scope: ["Interactive route map & arc visualization", "Year-over-year trend analysis", "Sortable, searchable data table with CSV export"],
+        technologies: ["Node.js", "Express", "D3.js", "U.S. DOT Open Data", "Render"],
+        link: "https://airfaredashboard.onrender.com/",
+        linkLabel: "Live Demo",
+    },
 ];
 
 export default function Projects() {
@@ -76,7 +87,7 @@ export default function Projects() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {projects.map((project, i) => (
-                        <FadeIn key={project.title} delay={i * 0.05} blur className={i === projects.length - 1 ? "md:col-span-2" : ""}>
+                        <FadeIn key={project.title} delay={i * 0.05} blur>
                             <SpotlightCard className="h-full flex flex-col p-8 md:p-12 min-h-[460px] justify-between">
                                 {/* Header row */}
                                 <div className="flex items-start justify-between gap-3">
