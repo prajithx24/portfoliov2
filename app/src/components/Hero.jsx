@@ -19,20 +19,20 @@ export default function Hero() {
                     </FadeIn>
                     <FadeIn delay={0.25} blur>
                         <h1 className="text-[2.25rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.93] lg:leading-[0.88] text-text-primary mb-8 md:mb-12">
-                            Building software,{" "}
+                            Engineering software,{" "}
                             <br />
                             <span className="font-serif italic font-normal text-text-primary/40 ml-[-0.05em] transition-colors hover:text-text-primary duration-700">
-                                exploring
-                            </span>,{" "}
+                                analysing data,
+                            </span>
                             <br />
-                            creating experiences.
+                            driving decisions.
                         </h1>
                     </FadeIn>
                     <FadeIn delay={0.4}>
                         <p className="text-[16px] md:text-lg text-text-secondary leading-[1.85] max-w-[520px] font-medium mb-12">
-                            I'm Prajith — a BTech Computer Science graduate currently pursuing
-                            an MBA. I enjoy building software projects, experimenting with AI,
-                            and creating digital experiences through design.
+                            I'm Prajith — a CS engineer and MBA candidate specialising in
+                            Business Analytics. I build data-driven products, design intelligent
+                            systems, and translate insights into decisions that matter.
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.55}>
